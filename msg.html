@@ -9,8 +9,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
     <title>MSG</title>
+    
     <style>
       form {
+        position: relative;
+        bottom: 4rem;
     width: 80%;
     max-width: 600px;
     margin: 0 auto;
@@ -61,23 +64,27 @@
   input[type="submit"]:hover {
     background-color: #0077A3;
   }
-  
+  h4{
+    cursor: pointer; z-index: 100;
+    display: inline;
+  }
     </style>
-</head>
-<body>
     
+</head>
+<body">
   <ul id="nav">
     <img src="CSS - My Site Images/Gashbin&Bana.png" id="logo1">
     <li class="dt"><a href="index.html#home">Home</a></li>
     <li class="dt"><a href="index.html#about">About</a> </li>
     <li class="dt"><a href="index.html#project">Projects</a></li>
     <li class="dt"><a href="index.html#contact">Contact us</a></li>
+    <span id="clock" style="color: white; position: relative; left: 16rem;"></span>
   </ul>
 
 
-<form method="post" action="">
-  <label for="full-name">Full name:</label>
-  <input type="text" id="full-name" name="full_name" required>
+<form id="form" method="get" action="">
+  <label for="name">Full name:</label>
+  <input type="text" id="name" name="name" required>
 
   <label for="email">Email:</label>
   <input type="email" id="email" name="email" required>
@@ -85,16 +92,30 @@
   <label for="location">Location:</label>
   <input type="text" id="location" name="location" required>
 
-  <label for="phone_number">Phone number</label>
+  <label for="phone_number">Phone number:</label>
   <input type="tel" id="phone_number" name="phone_number" pattern="\d+" required>
 
+  <label for="project_type">Type of your project:</label>
+  <input type="radio" id="design" value="design" name="project_type" onclick="designn()"><h4 onclick="designn()">Graphic Design</h4> 
+  <input type="radio" id="web" value="web" name="project_type" onclick="web()"><h4 onclick="webb()">Frontend Web Developer</h4>
 
   <label for="project-details">Tell us about your project:</label>
   <textarea id="project-details" name="project_details" required></textarea>
 
-  <input type="submit" name="submit_form" value="Submit">
+  <p id="error-message" style="display:none; color:red;"></p>
+
+  <input type="submit" name="submit_form" value="Submit" onclick="validateForm(event)">
 </form>
 
 
+
+
+<script src="script.js"></script>
+<script>
+  function showTime() { 
+  document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+  }
+  setInterval(showTime, 1000);
+  </script>
 </body>
 </html>
