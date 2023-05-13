@@ -18,6 +18,7 @@
   <li class="dt"><a href="#about">About</a> </li>
   <li class="dt"><a href="#project">Projects</a></li>
   <li class="dt"><a href="#contact">Contact us</a></li>
+  <span id="clock" style="color: white; position: relative; left: 16rem;"></span>
 </ul>
 
 
@@ -83,5 +84,11 @@
         <p id="fff">© Name Surname.</p>
       </div>
 
+      <script>
+        function showTime() { 
+        document.getElementById("clock").innerHTML = new Date().toLocaleTimeString();
+        }
+        setInterval(showTime, 1000);
+        </script>
 </body>
 </html>
